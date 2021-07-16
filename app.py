@@ -117,7 +117,8 @@ def get_entities_normalized():
     doc = nlp(text)
     d = [(ent.label_, ent.text) for ent in doc.ents]
     df = pd.DataFrame(d, columns=['category', 'value'])
-    return(df.groupby('category')['value'].apply(list).to_json())
+    df = df.groupby('category')['value'].apply(list)
+    return(df.to_json())
 
 if __name__ == '__main__':
     app.run(debug=True)
