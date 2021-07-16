@@ -1,4 +1,5 @@
 flask
 pandas
 spacy==3.0.0
+click
 gunicorn
